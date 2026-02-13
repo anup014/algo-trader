@@ -42,10 +42,10 @@ def run_algo():
     nearest_resistance = min([r for r in resistance if r > latest_price], default=None)
 
     if nearest_support is not None:
-      nearest_support = float(nearest_support[0])
+      nearest_support = float(nearest_support)
 
     if nearest_resistance is not None:
-      nearest_resistance = float(nearest_resistance[0])
+      nearest_resistance = float(nearest_resistance)
 
     rsi = float(df['RSI'].iloc[-1])
 
