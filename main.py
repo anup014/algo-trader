@@ -35,7 +35,8 @@ def run_algo():
     print("📐 Calculating support & resistance...")
     support, resistance = support_resistance(df)
 
-    latest_price = float(df['Close'].iloc[-1].values[0])
+    latest_price = float(df['Close'].iloc[-1])
+
 
     nearest_support = max([s for s in support if s < latest_price], default=None)
     nearest_resistance = min([r for r in resistance if r > latest_price], default=None)
