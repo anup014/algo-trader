@@ -1,6 +1,9 @@
-from data.fetch_data import fetch_stock_data
+
 from indicators.indicators import add_indicators
 from indicators.support_resistance import support_resistance
+from data.fetch_data import fetch_stock_data
+from strategy.signal import generate_signal
+
 
 
 def generate_signal(price, support, resistance, rsi):
