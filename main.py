@@ -100,38 +100,48 @@ st.markdown("""
 
 # --- PAGE A: THE FULL-SCREEN LANDING PAGE ---
 # --- PAGE A: THE FULL-SCREEN LANDING PAGE ---
+# --- PAGE A: THE FULL-SCREEN LANDING PAGE ---
 if st.session_state.app_state == "welcome":
-    # 1. CSS to hide sidebar and style the massive button
+    # 1. Advanced CSS for High-End Typography and Button Styling
     st.markdown("""
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+            
             [data-testid="stSidebar"] { display: none; }
+            
             div.stButton > button:first-child {
-                height: 4.5em !important;
-                font-size: 24px !important;
-                font-weight: 800 !important;
-                border-radius: 20px !important;
-                background: linear-gradient(45deg, #58a6ff, #1f6feb) !important;
-                color: white !important;
-                border: 2px solid rgba(255,255,255,0.2) !important;
-                box-shadow: 0 10px 30px rgba(88, 166, 255, 0.4) !important;
-                margin-top: -150px; /* Pulls button high onto the image */
+                height: 4.8em !important;
+                font-family: 'Inter', -apple-system, sans-serif !important;
+                font-size: 20px !important;
+                font-weight: 700 !important;
+                letter-spacing: 3px !important; /* Professional Tracking */
+                text-transform: uppercase !important;
+                border-radius: 12px !important;
+                background: rgba(88, 166, 255, 0.1) !important;
+                color: #58a6ff !important;
+                border: 2px solid #58a6ff !important;
+                backdrop-filter: blur(10px) !important; /* Glass effect */
+                margin-top: -180px; 
                 position: relative;
                 z-index: 9999;
-                transition: all 0.3s ease;
+                transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             }
+            
             div.stButton > button:first-child:hover {
-                transform: translateY(-5px) scale(1.02);
-                box-shadow: 0 15px 40px rgba(88, 166, 255, 0.6) !important;
+                background: #58a6ff !important;
+                color: #0d1117 !important;
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px rgba(88, 166, 255, 0.3) !important;
             }
         </style>
     """, unsafe_allow_html=True)
 
-    # 2. Hero Image with Text Overlay
+    # 2. Hero Image with Modern Typography Overlay
     st.markdown(f"""
         <div style="
             height: 85vh; 
             width: 100%; 
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), 
+            background-image: linear-gradient(rgba(13, 17, 23, 0.2), rgba(13, 17, 23, 0.9)), 
             url('https://images.pexels.com/photos/6770610/pexels-photo-6770610.jpeg?auto=compress&cs=tinysrgb&w=1260'); 
             background-size: cover; 
             background-position: center; 
@@ -145,18 +155,17 @@ if st.session_state.app_state == "welcome":
             font-family: 'Inter', sans-serif;
             border: 1px solid #30363d;
         ">
-            <h1 style="font-size: clamp(3.5rem, 12vw, 7rem); margin-bottom: 0px; font-weight: 900; letter-spacing: -5px; text-shadow: 0 10px 30px rgba(0,0,0,0.5);">QUANTPRO</h1>
-            <p style="font-size: clamp(1.2rem, 4vw, 1.8rem); max-width: 800px; margin-bottom: 60px; opacity: 0.95; font-weight: 300; text-shadow: 0 5px 15px rgba(0,0,0,0.5);">
-                Institutional Intelligence. Real-Time Momentum. <br>
-                Empowering the Next Generation of Indian Traders.
+            <h1 style="font-size: clamp(3.5rem, 12vw, 7.5rem); margin-bottom: 0px; font-weight: 900; letter-spacing: -6px; line-height: 0.9;">QUANTPRO</h1>
+            <p style="font-size: clamp(1rem, 3vw, 1.5rem); max-width: 750px; margin-top: 20px; margin-bottom: 80px; opacity: 0.8; font-weight: 400; letter-spacing: 1px; color: #8b949e;">
+                INSTITUTIONAL INTELLIGENCE • REAL-TIME MOMENTUM
             </p>
         </div>
     """, unsafe_allow_html=True)
 
-    # 3. The Large Button Logic
-    _, btn_col, _ = st.columns([1, 1.8, 1]) # Wider middle to accommodate large button
+    # 3. The Button Placement
+    _, btn_col, _ = st.columns([1, 2, 1]) 
     with btn_col:
-        if st.button("🚀 LAUNCH TERMINAL", use_container_width=True):
+        if st.button("Launch Terminal", use_container_width=True):
             st.session_state.app_state = "terminal"
             st.rerun()
 
